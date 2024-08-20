@@ -75,6 +75,7 @@
 /* Checkbox styling */
 .signup-form .terms {
   margin-top: 1rem;
+  padding-top: 20px;
 }
  
 /* Terms and conditions link styling */
@@ -106,13 +107,17 @@
 /* Add this to your CSS file */
 /* Add this to your CSS file */
 .alert-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 10px;
   right: 550px;
   z-index: 0; /* Ensure it appears above other content */
   width: 300px; /* Adjust width as needed */
   margin-top: 500px;
-  margin-left: 700px;
+  margin-left: 700px !important;
+  /* margin-right: 0px; */ 
 }
 
 .alert-message {

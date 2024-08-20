@@ -17,7 +17,7 @@ const Signup: React.FC = () => {
     console.log('Form values:', values);
     dispatch(setSignupData(values));
     localStorage.setItem('userData', JSON.stringify(values));
-    setAlertMessage('Signup successful...!');
+    setAlertMessage('Signup successful...! Login with your account');
     setTimeout(() => {
       navigate('/login');
     }, 2000); // Redirect after 2 seconds
@@ -114,7 +114,7 @@ const Signup: React.FC = () => {
           <Input.Password placeholder="******" />
         </Form.Item>
 
-        <Text className="password-strength poor">Poor</Text>
+        {/* <Text className="password-strength poor">Poor</Text> */}
 
         <Form.Item name="agreement" valuePropName="checked" className="terms">
           <Checkbox className='box'>

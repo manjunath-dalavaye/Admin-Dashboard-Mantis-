@@ -103,6 +103,7 @@ span.ant-typography.css-dev-only-do-not-override-1gwfwyx {
   right: 550px;
   z-index: 9999; /* Ensure it appears above other content */
   width: 300px; /* Adjust width as needed */
+  margin-top: 560px;
 }
 
 .alert-message {

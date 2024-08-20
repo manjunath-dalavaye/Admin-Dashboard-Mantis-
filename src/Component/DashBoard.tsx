@@ -1,96 +1,73 @@
 import React, { useState } from 'react';
 import {
   AppstoreOutlined,
-  CalendarOutlined,
-  LinkOutlined,
+  ContainerOutlined,
+  DesktopOutlined,
   MailOutlined,
-  SettingOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  PieChartOutlined,
 } from '@ant-design/icons';
-import { Divider, Menu, Switch } from 'antd';
-import type { GetProp, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Button, Menu } from 'antd';
 
-type MenuTheme = GetProp<MenuProps, 'theme'>;
-
-type MenuItem = GetProp<MenuProps, 'items'>[number];
+type MenuItem = Required<MenuProps>['items'][number];
 
 const items: MenuItem[] = [
-  {
-    key: '1',
-    icon: <MailOutlined />,
-    label: 'Navigation One',
-  },
-  {
-    key: '2',
-    icon: <CalendarOutlined />,
-    label: 'Navigation Two',
-  },
+  { key: '1', icon: <PieChartOutlined />, label: 'Option 1' },
+  { key: '2', icon: <DesktopOutlined />, label: 'Option 2' },
+  { key: '3', icon: <ContainerOutlined />, label: 'Option 3' },
   {
     key: 'sub1',
-    label: 'Navigation Two',
-    icon: <AppstoreOutlined />,
+    label: 'Navigation One',
+    icon: <MailOutlined />,
     children: [
-      { key: '3', label: 'Option 3' },
-      { key: '4', label: 'Option 4' },
-      {
-        key: 'sub1-2',
-        label: 'Submenu',
-        children: [
-          { key: '5', label: 'Option 5' },
-          { key: '6', label: 'Option 6' },
-        ],
-      },
+      { key: '5', label: 'Option 5' },
+      { key: '6', label: 'Option 6' },
+      { key: '7', label: 'Option 7' },
+      { key: '8', label: 'Option 8' },
     ],
   },
   {
     key: 'sub2',
-    label: 'Navigation Three',
-    icon: <SettingOutlined />,
+    label: 'Navigation Two',
+    icon: <AppstoreOutlined />,
     children: [
-      { key: '7', label: 'Option 7' },
-      { key: '8', label: 'Option 8' },
       { key: '9', label: 'Option 9' },
       { key: '10', label: 'Option 10' },
+      {
+        key: 'sub3',
+        label: 'Submenu',
+        children: [
+          { key: '11', label: 'Option 11' },
+          { key: '12', label: 'Option 12' },
+        ],
+      },
     ],
-  },
-  {
-    key: 'link',
-    icon: <LinkOutlined />,
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Ant Design
-      </a>
-    ),
   },
 ];
 
 const DashBoard: React.FC = () => {
-  const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
-  const [theme, setTheme] = useState<MenuTheme>('light');
+  const [collapsed, setCollapsed] = useState(false);
 
-  const changeMode = (value: boolean) => {
-    setMode(value ? 'vertical' : 'inline');
-  };
-
-  const changeTheme = (value: boolean) => {
-    setTheme(value ? 'dark' : 'light');
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
   };
 
   return (
-    <>
-      <Switch onChange={changeMode} /> Change Mode
-      <Divider type="vertical" />
-      <Switch onChange={changeTheme} /> Change Style
-      <br />
-      <br />
+    <div style={{ width: 300 }}>
+      <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
+        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+      </Button>
       <Menu
-        style={{ width: 256 }}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
-        mode={mode}
-        theme={theme}
+        mode="inline"
+        theme="light"
+        inlineCollapsed={collapsed}
         items={items}
       />
-    </>
+    </div>
   );
 };
 

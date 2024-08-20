@@ -27,8 +27,8 @@ const Login: React.FC = () => {
     if (isValid) {
       setAlertMessage('Login successful! Welcome to the dashboard');
       setTimeout(() => {
-        navigate('/dashboard'); // Redirect to a different page
-      }, 2000); // Delay for alert to show
+        navigate('/dashboard');   // Redirect to a different page
+      }, 2000);    // Delay for alert to show
     } else {
       setAlertMessage('Invalid credentials');
     }

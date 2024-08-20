@@ -1,0 +1,125 @@
+.container-2 {
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: linear-gradient(to right, #f3f4f6, #e2e8f0); */
+}
+ 
+ 
+.signup-form {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+ 
+.signup-form .ant-typography {
+  margin-bottom: 1.5rem;
+}
+ 
+.signup-form .ant-typography a {
+  color: #1890ff;
+  text-decoration: none;
+}
+ 
+.signup-form .ant-typography a:hover {
+  text-decoration: underline;
+}
+ 
+ 
+.signup-form .ant-form-item {
+  margin-bottom: 1rem;
+}
+ 
+.signup-form .ant-form-item-label > label {
+  color: #333;
+} 
+ 
+ 
+.signup-form .ant-input {
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+}
+ 
+.signup-form .ant-input:hover {
+  border-color: #1890ff;
+}
+ 
+.signup-form .ant-input-password {
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+}
+ 
+.signup-form .ant-input-password:hover {
+  border-color: #1890ff;
+}
+ 
+/* Button styling */
+.signup-form .ant-btn {
+  width: 100%;
+  border-radius: 4px;
+  background: #1890ff;
+  color: #fff;
+  border: none;
+}
+ 
+.signup-form .ant-btn:hover {
+  background: #40a9ff;
+}
+ 
+/* Checkbox styling */
+.signup-form .terms {
+  margin-top: 1rem;
+}
+ 
+/* Terms and conditions link styling */
+.signup-form .terms a {
+  color: #1890ff;
+  text-decoration: none;
+}
+ 
+.signup-form .terms a:hover {
+  text-decoration: underline;
+}
+
+/* span.ant-typography.css-dev-only-do-not-override-1gwfwyx {
+  margin-left: 1px;
+  margin-bottom: 89px;
+  padding-top: 9px;
+} */
+
+/* element.style {
+  margin-left: -236px;
+} */
+
+
+.signup-form .ant-typography {
+  margin-left: -20.5rem;
+}
+
+/* alert message */
+/* Add this to your CSS file */
+/* Add this to your CSS file */
+.alert-container {
+  position: fixed;
+  top: 10px;
+  right: 550px;
+  z-index: 0; /* Ensure it appears above other content */
+  width: 300px; /* Adjust width as needed */
+  margin-top: 500px;
+  margin-left: 700px;
+}
+
+.alert-message {
+  margin-bottom: 10px;
+}
+
+.box{
+  margin-bottom: 10px;
+  /* margin-left: 20px; */
+}

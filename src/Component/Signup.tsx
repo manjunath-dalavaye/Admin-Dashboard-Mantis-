@@ -114,8 +114,6 @@ const Signup: React.FC = () => {
           <Input.Password placeholder="******" />
         </Form.Item>
 
-        {/* <Text className="password-strength poor">Poor</Text> */}
-
         <Form.Item name="agreement" valuePropName="checked" className="terms">
           <Checkbox className='box'>
             By Signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>

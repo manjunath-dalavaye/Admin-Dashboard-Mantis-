@@ -106,25 +106,14 @@
 /* alert message */
 /* Add this to your CSS file */
 /* Add this to your CSS file */
+.container-2 {
+  position: relative; /* Ensure container is relative for absolute positioning of alert */
+}
+
 .alert-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 10px;
-  right: 550px;
-  z-index: 0; /* Ensure it appears above other content */
+  position: absolute;
+  bottom: 20px; /* Adjust distance from bottom */
+  right: 20px; /* Adjust distance from right */
+  z-index: 1000; /* Ensure it appears on top of other elements */
   width: 300px; /* Adjust width as needed */
-  margin-top: 500px;
-  margin-left: 700px !important;
-  /* margin-right: 0px; */ 
-}
-
-.alert-message {
-  margin-bottom: 10px;
-}
-
-.box{
-  margin-bottom: 10px;
-  /* margin-left: 20px; */
 }

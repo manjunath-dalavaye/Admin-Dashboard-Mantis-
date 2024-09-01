@@ -1,0 +1,139 @@
+/* 
+  Key Concepts in SASS Explained:
+  
+  Variables: Variables in SASS are defined using the $ symbol. They store reusable values, 
+  like colors, padding, margins, etc. This helps maintain consistent styles and makes it 
+  easy to update them globally by changing the variable value.
+*/
+$primary-color: #007bff; // Main color for links and buttons
+$hover-color: #0056b3; // Hover color for buttons
+$google-color: #db4437; // Google button background color
+$twitter-color: #1da1f2; // Twitter button background color
+$facebook-color: #3b5998; // Facebook button background color
+$border-radius: 8px; // Border radius for buttons and form container
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Box shadow for form container
+
+/* 
+  Nesting: SASS allows you to nest CSS selectors within one another. This mimics the HTML structure 
+  and makes the code more organized and easier to read. For example, .header .signup-link a {} 
+  in CSS becomes nested in SASS under .header { .signup-link { a {}}}.
+*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  height: 100vh; /* Keep the full-screen centering */
+  position: relative; /* To position the signup link */
+}
+
+.login-form {
+  width: 400px; /* Adjust width as needed */
+  padding: 2rem;
+  border-radius: $border-radius; // Variable used here
+  box-shadow: $box-shadow; // Variable used here
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between; /* Align items to the ends */
+
+  .login-title {
+    margin: 0;
+  }
+
+  .signup-link {
+    font-size: 14px;
+    color: $primary-color; // Variable used here
+
+    a {
+      color: $primary-color; // Variable used here
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.forgot-password {
+  float: right;
+  color: $primary-color; // Variable used here
+  margin-top: -24px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  button {
+    margin: 0 10px;
+    color: #fff;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .google-btn {
+    background-color: $google-color; // Variable used here
+  }
+
+  .twitter-btn {
+    background-color: $twitter-color; // Variable used here
+  }
+
+  .facebook-btn {
+    background-color: $facebook-color; // Variable used here
+  }
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: $primary-color; // Variable used here
+  color: #fff;
+  border: none;
+  border-radius: $border-radius; // Variable used here
+  cursor: pointer;
+  margin-top: 12px;
+
+  &:hover {
+    background-color: $hover-color; // Variable used here
+  }
+}
+
+span.ant-typography.css-dev-only-do-not-override-1gwfwyx {
+  margin-left: 133px;
+  margin-bottom: 89px;
+  padding-top: 9px;
+}
+
+/* 
+  Partials (Not used here, but good to know): SASS allows you to split your styles into 
+  multiple files, known as partials, and import them into a main SASS file. This helps 
+  manage large stylesheets by keeping them modular.
+
+  Mixins (Not used here, but good to know): Mixins allow you to create reusable chunks 
+  of CSS that can be included in other selectors. You would use a mixin to avoid repetitive 
+  code, like consistent button styles.
+*/
+
+.alert-container {
+  position: fixed;
+  margin-right: 50px;
+  top: 15px;
+  right: 550px;
+  z-index: 9999; /* Ensure it appears above other content */
+  width: 300px; /* Adjust width as needed */
+  margin-top: 560px;
+}
+
+.alert-message {
+  margin-bottom: 15px;
+}

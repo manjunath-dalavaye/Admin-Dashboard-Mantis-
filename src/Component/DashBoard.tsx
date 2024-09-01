@@ -12,16 +12,21 @@ import {
   SettingOutlined,
   BarChartOutlined,
   LockOutlined,
+  BellOutlined,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Routes, Route } from "react-router-dom";
+import DashboardPage from './dashData'; // Import the DashboardPage component
+// import ProfileDropdown from "./profile";
 
-const { Header, Sider } = Layout;
+
+const { Header, Sider, Content } = Layout;
 
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [notifications, setNotifications] = useState(5); // Notification count
+  const [notifications] = useState(5); // Notification count
   const [profileName] = useState("John Doe");
-  const navigate = useNavigate(); //Initialize for the login page
+  const navigate = useNavigate(); // Initialize for navigation
+  const [active, setActive] = useState<string | null>('dashboard');
 
   const toggleCollapse = () => {
     setCollapsed(!collapsed);
@@ -32,13 +37,28 @@ const DashboardLayout = () => {
   };
 
   const registerForm = () => {
-    navigate("/signup"); // Use navigate to redirect to the login page
+    navigate("/signup"); // Use navigate to redirect to the signup page
   };
+
+  const goToDashboard = () => {
+    setActive('dashboard'); // Set active state to 'dashboard'
+    navigate("/home/dashboard"); // Use navigate to redirect to the dashboard page
+  };
+
   // Dropdown menu for the profile
   const profileMenu = (
     <Menu>
       <Menu.Item key="1">Profile</Menu.Item>
       <Menu.Item key="2">Logout</Menu.Item>
+    </Menu>
+  );
+
+  // Dropdown menu for notifications
+  const notificationMenu = (
+    <Menu>
+      <Menu.Item key="1">Notification 1</Menu.Item>
+      <Menu.Item key="2">Notification 2</Menu.Item>
+      <Menu.Item key="3">Notification 3</Menu.Item>
     </Menu>
   );
 
@@ -49,7 +69,6 @@ const DashboardLayout = () => {
         <Sider
           width={250}
           theme="light"
-          font-size="14px"
           style={{ fontFamily: "Public Sans, sans-serif" }}
         >
           <div
@@ -66,12 +85,12 @@ const DashboardLayout = () => {
             <div
               className="log"
               style={{
-                border: "1px solid #000", // Border for the box
-                padding: "4px 8px", // Padding inside the box
-                marginLeft: "10px", // Space between "Mantis" and the version number
-                borderRadius: "4px", // Optional: Rounding the corners
-                fontSize: "16px", // Font size for the version number
-                fontWeight: "normal", // Ensuring the version number has normal font weight
+                border: "1px solid #000",
+                padding: "4px 8px",
+                marginLeft: "10px",
+                borderRadius: "4px",
+                fontSize: "16px",
+                fontWeight: "normal",
               }}
             >
               v1.3.0
@@ -80,7 +99,7 @@ const DashboardLayout = () => {
 
           <Menu mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.ItemGroup key="navigation" title="Navigation">
-              <Menu.Item key="1" icon={<DashboardOutlined />}>
+              <Menu.Item key="1" icon={<DashboardOutlined />} onClick={goToDashboard}>
                 Dashboard
               </Menu.Item>
             </Menu.ItemGroup>
@@ -93,9 +112,7 @@ const DashboardLayout = () => {
                 Login
               </Menu.Item>
 
-              <Menu.Item key="3" icon={<FileTextOutlined />}
-              onClick={registerForm}
-              >
+              <Menu.Item key="3" icon={<FileTextOutlined />} onClick={registerForm}>
                 Sign-up
               </Menu.Item>
             </Menu.ItemGroup>
@@ -142,7 +159,6 @@ const DashboardLayout = () => {
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
               style={{ marginLeft: 16 }}
             />
-
             {/* Search Bar */}
             <Input
               placeholder="Search..."
@@ -151,33 +167,30 @@ const DashboardLayout = () => {
             />
           </div>
 
-          <div
-            style={{ display: "flex", alignItems: "center", marginRight: 16 }}
-          >
-            {/* Notification Badge */}
-            <Badge count={notifications} offset={[10, 0]}>
-              <NotificationOutlined
-                style={{ fontSize: "20px", marginRight: 20 }}
-              />
-            </Badge>
+          <div style={{ display: 'flex', alignItems: 'center', paddingRight: 16 }}>
+            <a
+              href="https://github.com/manjunath-dalavaye"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button shape="circle" icon={<GithubOutlined />} style={{ marginLeft: 30 }} />
+            </a>
+            <Dropdown overlay={notificationMenu} trigger={['click']}>
+              <Badge count={notifications} size="small">
+                <Button shape="circle" icon={<BellOutlined />} style={{ marginLeft: 30 }} />
+              </Badge>
+            </Dropdown>
 
-            {/* GitHub Icon */}
-            <Button
-              type="text"
-              icon={<GithubOutlined style={{ fontSize: "20px" }} />}
-              onClick={() =>
-                window.open("https://github.com/manjunath-dalavaye", "_blank")
-              }
-              style={{ marginRight: 20 }}
-            />
+            {/* profile data  */}
+            {/* <ProfileDropdown /> */}
 
-            {/* Profile Avatar with Hover Dropdown */}
             <Dropdown overlay={profileMenu} placement="bottomRight">
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  cursor: "pointer",
+                  display: 'flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  marginLeft: 20,
                 }}
               >
                 <Avatar icon={<UserOutlined />} />
@@ -187,8 +200,11 @@ const DashboardLayout = () => {
           </div>
         </Header>
 
-        {/* Main content can go here */}
-        <div style={{ padding: "24px" }}>{/* Your content */}</div>
+        {/* Main content */}
+        <Content style={{ padding: '24px', background: '#f0f2f5' }}>
+          {active === 'dashboard' && <DashboardPage />}
+        </Content>
+
       </Layout>
     </Layout>
   );

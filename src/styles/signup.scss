@@ -1,0 +1,133 @@
+/* 
+  Key Concepts in SASS Explained:
+  
+  Variables: Variables in SASS are defined using the $ symbol. They store reusable values, 
+  like colors, padding, margins, etc. This helps maintain consistent styles and makes it 
+  easy to update them globally by changing the variable value.
+*/
+$primary-color: #1890ff; /* Main color for links and buttons */
+$hover-color: #40a9ff; /* Hover color for buttons and links */
+$text-color: #333; /* Color for labels and text */
+$background-color: #fff; /* Background color for forms and containers */
+$border-color: #dcdcdc; /* Border color for inputs */
+$border-radius: 4px; /* Border radius for buttons and inputs */
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for form container */
+$margin-top: 120px; /* Margin-top for the main container */
+$padding: 2rem; /* Padding for form container */
+$max-width: 500px; /* Maximum width for form container */
+
+/* 
+  Nesting: SASS allows you to nest CSS selectors within one another. This mimics the HTML structure 
+  and makes the code more organized and easier to read. For example, .signup-form .ant-typography a {} 
+  in CSS becomes nested in SASS under .signup-form { .ant-typography { a {}}}.
+*/
+.container-2 {
+  margin-top: $margin-top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+
+  // background: linear-gradient(to right, #f3f4f6, #e2e8f0); 
+  /* Commented out gradient background */
+}
+
+
+
+.signup-form {
+  max-width: $max-width;
+  width: 100%;
+  background: $background-color;
+  padding: $padding;
+  border-radius: 8px; /* Rounded corners for the form */
+  box-shadow: $box-shadow;
+  text-align: center; /* Center text inside the form */
+
+  /* 
+    Nested styles: Nesting allows the styles to be grouped under their parent class, 
+    keeping the code organized and reducing redundancy.
+  */
+  .ant-typography {
+    margin-bottom: 1.5rem; /* Space below text elements */
+
+    /* Specific class for overriding styles */
+    // &.css-dev-only-do-not-override-1gwfwyx {
+    //   margin-left: -20.5rem; /* Adjust left margin */
+    // }
+
+    /* Styling for links inside the typography */
+    a {
+      color: $primary-color;
+      text-decoration: none; /* Remove underline */
+
+      &:hover { /* Hover state for links */
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Form item (e.g., input fields) styling */
+  .ant-form-item {
+    margin-bottom: 1rem; /* Space below each form item */
+
+    /* Label styling inside form items */
+    &-label > label {
+      color: $text-color; /* Label text color */
+    }
+  }
+
+  /* Input field styling */
+  .ant-input,
+  .ant-input-password { /* Password input field styling */
+    border-radius: $border-radius;
+    border: 1px solid $border-color; /* Default border color */
+
+    &:hover { /* Hover state for input fields */
+      border-color: $primary-color; /* Change border color on hover */
+    }
+  }
+
+  /* Button styling inside the sign-up form */
+  .ant-btn {
+    width: 100%; /* Full width button */
+    border-radius: $border-radius;
+    background: $primary-color; /* Button background color */
+    color: $background-color; /* Button text color (white) */
+    border: none; /* Remove button border */
+
+    &:hover { /* Hover state for button */
+      background: $hover-color; /* Change background color on hover */
+    }
+  }
+
+  /* Styling for the terms and conditions section */
+  .terms {
+    margin-top: 1rem; /* Space above terms section */
+    padding-top: 20px; /* Padding at the top of terms section */
+    
+
+    .box{
+      // vertical-align: baseline;
+      vertical-align: text-top;
+    }
+    /* Link styling inside the terms section */
+    a {
+      color: $primary-color;
+      text-decoration: none; /* Remove underline */
+
+      &:hover { /* Hover state for terms links */
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* 
+  Partials (Not used here, but good to know): SASS allows you to split your styles into 
+  multiple files, known as partials, and import them into a main SASS file. This helps 
+  manage large stylesheets by keeping them modular.
+
+  Mixins (Not used here, but good to know): Mixins allow you to create reusable chunks 
+  of CSS that can be included in other selectors. You would use a mixin to avoid repetitive 
+  code, like consistent button styles.
+*/

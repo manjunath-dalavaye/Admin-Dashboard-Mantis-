@@ -3,7 +3,7 @@ import { Form, Input, Button, Checkbox, Typography, Alert, Space } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import '../styles/style.css';
+import '../styles/login.scss';
 
 const { Title, Text } = Typography;
 
@@ -27,10 +27,13 @@ const Login: React.FC = () => {
     if (isValid) {
       setAlertMessage('Login successful! Welcome to the dashboard');
       setTimeout(() => {
-        navigate('/dashboard');   // Redirect to a different page
+        navigate('/DashboardLayout');   // Redirect to a different page
       }, 2000);    // Delay for alert to show
     } else {
       setAlertMessage('Invalid credentials');
+      setTimeout(()=>{
+        setAlertMessage('');
+      },1000);
     }
   };
 

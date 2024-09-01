@@ -1,0 +1,52 @@
+{
+  "lineData": [
+    { "name": "Mon", "PageViews": 30, "Sessions": 20 },
+    { "name": "Tue", "PageViews": 50, "Sessions": 40 },
+    { "name": "Wed", "PageViews": 70, "Sessions": 60 },
+    { "name": "Thu", "PageViews": 40, "Sessions": 30 },
+    { "name": "Fri", "PageViews": 80, "Sessions": 50 },
+    { "name": "Sat", "PageViews": 100, "Sessions": 70 },
+    { "name": "Sun", "PageViews": 110, "Sessions": 80 }
+  ],
+  "barData": [
+    { "name": "Mo", "Income": 700 },
+    { "name": "Tu", "Income": 1200 },
+    { "name": "We", "Income": 1000 },
+    { "name": "Th", "Income": 1500 },
+    { "name": "Fr", "Income": 1700 },
+    { "name": "Sa", "Income": 1300 },
+    { "name": "Su", "Income": 1650 }
+  ],
+  "dashboardStats": {
+    "totalPageViews": { "value": "4,42,236", "change": "59.3%", "message": "You made an extra 35,000 this year" },
+    "totalUsers": { "value": "78,250", "change": "70.5%", "message": "You made an extra 8,900 this year" },
+    "totalOrders": { "value": "18,800", "change": "27.4%", "message": "You made an extra 1,943 this year" },
+    "totalSales": { "value": "$35,078", "change": "27.4%", "message": "You made an extra $20,395 this year" }
+  },
+  "orders": [
+    { "trackingNo": "13256498", "productName": "Keyboard", "totalOrder": 125, "status": "Rejected", "totalAmount": "$70,999" },
+    { "trackingNo": "13286564", "productName": "Computer Accessories", "totalOrder": 100, "status": "Approved", "totalAmount": "$83,348" },
+    { "trackingNo": "84564564", "productName": "Camera Lens", "totalOrder": 40, "status": "Rejected", "totalAmount": "$40,570" },
+    { "trackingNo": "86739658", "productName": "TV", "totalOrder": 99, "status": "Pending", "totalAmount": "$410,780" },
+    { "trackingNo": "98652366", "productName": "Handset", "totalOrder": 50, "status": "Approved", "totalAmount": "$10,239" },
+    { "trackingNo": "98753263", "productName": "Mouse", "totalOrder": 89, "status": "Rejected", "totalAmount": "$10,570" },
+    { "trackingNo": "98753275", "productName": "Desktop", "totalOrder": 185, "status": "Approved", "totalAmount": "$98,063" },
+    { "trackingNo": "98753291", "productName": "Chair", "totalOrder": 100, "status": "Pending", "totalAmount": "$14,001" },
+    { "trackingNo": "98756325", "productName": "Mobile", "totalOrder": 355, "status": "Approved", "totalAmount": "$90,989" },
+    { "trackingNo": "98764564", "productName": "Laptop", "totalOrder": 300, "status": "Pending", "totalAmount": "$180,139" }
+  ],
+  "analytics": {
+    "companyFinanceGrowth": "+45.14%",
+    "companyExpensesRatio": "0.58%",
+    "businessRiskCases": "Low",
+    "riskData": [
+      { "month": "Jun", "value": 50 },
+      { "month": "Jul", "value": 30 },
+      { "month": "Aug", "value": 70 },
+      { "month": "Sep", "value": 40 },
+      { "month": "Oct", "value": 60 },
+      { "month": "Nov", "value": 20 },
+      { "month": "Dec", "value": 50 }
+    ]
+  }
+}

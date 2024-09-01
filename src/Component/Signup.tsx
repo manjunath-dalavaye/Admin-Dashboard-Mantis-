@@ -4,7 +4,7 @@ import { SmileOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { setSignupData } from '../redux/signupSlice'; // Adjust path as needed
-import '../styles/signup.css'; // Ensure this file includes your .alert-container styles
+import '../styles/signup.scss';
 
 const { Title, Text } = Typography;
 
@@ -16,7 +16,7 @@ const Signup: React.FC = () => {
   const handleFinish = (values: any) => {
     console.log('Form values:', values);
     dispatch(setSignupData(values));
-    localStorage.setItem('userData', JSON.stringify(values));
+    localStorage.setItem('userData', JSON.stringify(values)); //if locally stored data will same then only valid for the login
     setAlertMessage('Signup successful...! Login with your account');
     setTimeout(() => {
       navigate('/login');

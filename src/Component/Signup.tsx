@@ -45,6 +45,12 @@ const Signup: React.FC = () => {
 
   return (
     <div className="container-2">
+
+      {/* navbar */}
+      {/* <div className="logo-container">
+        <img src="/assets/icon.png" alt="#Logo" className="logo-image" />
+      </div> */}
+
       {alertMessage && (
         <div className="alert-container">
           <Alert

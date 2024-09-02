@@ -28,11 +28,23 @@ $max-width: 500px; /* Maximum width for form container */
   align-items: center;
   height: 100vh; /* Full viewport height */
   margin-bottom: 100px; /* Space below the container */
-
+  margin-top: 20px;
   // background: linear-gradient(to right, #f3f4f6, #e2e8f0); 
   /* Commented out gradient background */
 }
 
+.logo {
+   margin-top: 2px;
+   justify-content: baseline;
+}
+
+.username-main {
+  display: flex;
+
+  .username-first {
+    margin-right: 63px;
+  }
+}
 
 
 .signup-form {
@@ -44,6 +56,8 @@ $max-width: 500px; /* Maximum width for form container */
   box-shadow: $box-shadow;
   text-align: center; /* Center text inside the form */
 
+
+ 
   /* 
     Nested styles: Nesting allows the styles to be grouped under their parent class, 
     keeping the code organized and reducing redundancy.

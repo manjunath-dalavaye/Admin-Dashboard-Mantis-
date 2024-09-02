@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { setSignupData } from '../redux/signupSlice'; // Adjust path as needed
 import '../styles/signup.scss';
+import icon from "../assets/logo.png"
 
 const { Title, Text } = Typography;
 
@@ -44,12 +45,15 @@ const Signup: React.FC = () => {
   };
 
   return (
+    <>
+
+     {/* navbar */}
+     <div className='logo'>
+        <img src={icon} alt="#Logo"/>
+      </div>
     <div className="container-2">
 
-      {/* navbar */}
-      {/* <div className="logo-container">
-        <img src="/assets/icon.png" alt="#Logo" className="logo-image" />
-      </div> */}
+     
 
       {alertMessage && (
         <div className="alert-container">
@@ -81,6 +85,9 @@ const Signup: React.FC = () => {
           </Text>
         </div>
 
+
+      <div className='username-main'>
+        <div className='username-first'>
         <Form.Item
           label="First Name*"
           name="firstName"
@@ -88,7 +95,8 @@ const Signup: React.FC = () => {
         >
           <Input placeholder="John" />
         </Form.Item>
-
+        </div>
+        <div>
         <Form.Item
           label="Last Name*"
           name="lastName"
@@ -96,6 +104,11 @@ const Signup: React.FC = () => {
         >
           <Input placeholder="Doe" />
         </Form.Item>
+        </div>
+      </div>
+        
+
+        
 
         <Form.Item
           label="Company"
@@ -133,6 +146,7 @@ const Signup: React.FC = () => {
         </Form.Item>
       </Form>
     </div>
+    </>
   );
 };
 

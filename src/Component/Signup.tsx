@@ -45,8 +45,8 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <>
-
+    
+    <div className='main_content'>
      {/* navbar */}
      <div className='logo'>
         <img src={icon} alt="#Logo"/>
@@ -75,14 +75,16 @@ const Signup: React.FC = () => {
         onFinish={handleFinish}
         className="signup-form"
       >
+        <div className='signup_text'>
         <div className="head">
-          <Title level={2}>Sign up</Title>
+          <Title>Sign up</Title>
         </div>
 
         <div className="refresh">
           <Text>
-            Already have an account? <a href="/login" className="link">Log in</a>
+          <a href="/login" className="link">  Already have an account? </a>
           </Text>
+        </div>
         </div>
 
 
@@ -133,11 +135,12 @@ const Signup: React.FC = () => {
           <Input.Password placeholder="******" />
         </Form.Item>
 
-        <Form.Item name="agreement" valuePropName="checked" className="terms">
-          <Checkbox className='box'>
-            By Signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-          </Checkbox>
-        </Form.Item>
+       
+        <p className='TandC'>
+        By Signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        </p>
+          
+    
 
         <Form.Item>
           <Button type="primary" htmlType="submit" className="btn">
@@ -146,7 +149,7 @@ const Signup: React.FC = () => {
         </Form.Item>
       </Form>
     </div>
-    </>
+    </div>
   );
 };
 

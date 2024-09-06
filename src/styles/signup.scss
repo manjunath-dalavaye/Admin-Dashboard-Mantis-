@@ -27,10 +27,32 @@ $max-width: 500px; /* Maximum width for form container */
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full viewport height */
-  margin-bottom: 100px; /* Space below the container */
-  margin-top: 20px;
+  // margin-bottom: 100px; /* Space below the container */
+  margin-top: -50px;
   // background: linear-gradient(to right, #f3f4f6, #e2e8f0); 
   /* Commented out gradient background */
+}
+
+
+.main_content{
+  background-color: rgb(250, 250, 251);
+}
+
+.signup_text{
+  display: flex;
+  margin-top: -1.5rem;
+
+}
+
+
+.head{
+ font-size: 23px;
+}
+
+.refresh{
+  margin: auto;
+  margin-right: -0.3rem;
+  margin-top: 2.8rem;
 }
 
 .logo {
@@ -46,6 +68,9 @@ $max-width: 500px; /* Maximum width for form container */
   }
 }
 
+.TandC{
+ font-size: 0.85rem;
+}
 
 .signup-form {
   max-width: $max-width;

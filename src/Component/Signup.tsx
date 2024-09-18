@@ -3,7 +3,7 @@ import { Form, Input, Button, Checkbox, Typography, Alert, Space } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { setSignupData } from '../redux/signupSlice'; // Adjust path as needed
+import { setSignupData } from '../redux/signupSlice';
 import '../styles/signup.scss';
 import icon from "../assets/logo.png"
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Checkbox, Typography, Alert, Space } from "antd";
 import { SmileOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.scss";
 import icon from "../assets/logo.png";
+import { RootState } from "../redux/store";
 
 const { Title, Text } = Typography;
 
@@ -13,16 +14,27 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState<string | null>(null); // State for alert message
 
+  // const handleFinish = (values: any) => {
+  //   console.log("Form values:", values);
+
+  //   // Retrieve user data from localStorage
+  //   const storedData = JSON.parse(localStorage.getItem("userData") || "{}");
+
+  //   // Validate login
+  //   const isValid =
+  //     values.email === storedData.email &&
+  //     values.password === storedData.password;
+
+  const { email: storedEmail, password: storedPassword } = useSelector(
+    (state: RootState) => state.auth
+  );
+
   const handleFinish = (values: any) => {
     console.log("Form values:", values);
 
-    // Retrieve user data from localStorage
-    const storedData = JSON.parse(localStorage.getItem("userData") || "{}");
-
-    // Validate login
+    // Validate login using data from Redux store
     const isValid =
-      values.email === storedData.email &&
-      values.password === storedData.password;
+      values.email === storedEmail && values.password === storedPassword;
 
     if (isValid) {
       setAlertMessage("Login successful! Welcome to the dashboard");
